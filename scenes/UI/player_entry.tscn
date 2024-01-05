@@ -3,6 +3,11 @@
 [ext_resource type="Script" path="res://scripts/lobby/PlayerEntry.gd" id="1_na8mf"]
 
 [node name="player-entry" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_na8mf")
@@ -15,13 +20,12 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="player-name" type="Label" parent="."]
+[node name="player-name" type="LineEdit" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "player-name"
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
+size_flags_stretch_ratio = 2.0
+alignment = 1
+max_length = 40
 
 [node name="left-key-bind" type="Button" parent="."]
 layout_mode = 2

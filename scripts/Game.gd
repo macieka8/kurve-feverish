@@ -12,6 +12,8 @@ func _ready() -> void:
 	for player_data in players:
 		var player_instance := player_scene.instantiate() as Player
 		player_instance.player_data = player_data
+		player_instance.position = Vector2(randi_range(-300, 300), randi_range(-300, 300))
+		player_instance.rotation = randf_range(0, TAU)
 		player_instance.add_to_group("player")
 		add_child(player_instance)
 

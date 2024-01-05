@@ -4,11 +4,23 @@ class_name Lobby
 signal player_data_changed
 signal start_game
 
+var default_player_data: Array[PlayerData] = [
+	PlayerData.from("", KEY_Q, KEY_W, "Q", "W"),
+	PlayerData.from("", KEY_Z, KEY_X, "Z", "X"),
+	PlayerData.from("", KEY_O, KEY_P, "O", "P"),
+	PlayerData.from("", KEY_DOWN, KEY_UP, "DOWN", "UP")
+]
+
 var names := load_names()
-var players: Array[PlayerData] = []
+var players: Array[PlayerData]
+
+func _ready() -> void:
+	player_data_changed.emit()
 
 func add_player() -> void:
 	var new_player: PlayerData = PlayerData.new()
+	if players.size() < default_player_data.size():
+		new_player = default_player_data[players.size()]
 	new_player.name = get_random_name()
 	players.append(new_player)
 	player_data_changed.emit()

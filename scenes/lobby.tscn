@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn1ifa611p8mp"]
 
 [ext_resource type="Script" path="res://scripts/lobby/Lobby.gd" id="1_vbbwo"]
-[ext_resource type="Script" path="res://scenes/PlayerContainerUI.gd" id="2_ds1ma"]
-[ext_resource type="Script" path="res://scenes/Rebinder.gd" id="3_xrf6d"]
+[ext_resource type="Script" path="res://scripts/lobby/PlayerContainerUI.gd" id="2_ds1ma"]
+[ext_resource type="Script" path="res://scripts/lobby/Rebinder.gd" id="3_xrf6d"]
 
 [node name="lobby" type="Control"]
 layout_mode = 3

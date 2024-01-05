@@ -20,13 +20,17 @@ func create_entry(player_id: int, player: PlayerData):
 	var entry = entry_prefab.instantiate() as PlayerEntry
 	entry.get_node(entry.id_label).text = "{id}".format({"id": player_id + 1})
 	entry.get_node(entry.player_name).text = player.name
-	entry.get_node(entry.left_key_bind).text = "" if player.left == null else player.left.as_text()
-	entry.get_node(entry.right_key_bind).text = "" if player.right == null else player.right.as_text()
+	(entry.get_node(entry.player_name) as LineEdit).text_changed.connect(_on_change_player_name.bind(player_id))
+	entry.get_node(entry.left_key_bind).text = "" if player.left == null else player.left_name
+	entry.get_node(entry.right_key_bind).text = "" if player.right == null else player.right_name
 	
 	entry.get_node(entry.left_key_bind).pressed.connect(_on_bind_requested.bind(player_id, 1))
 	entry.get_node(entry.right_key_bind).pressed.connect(_on_bind_requested.bind(player_id, 2))
 	
 	add_child(entry)
+
+func _on_change_player_name(new_text: String, player_id: int) -> void:
+	lobby.players[player_id].name = new_text
 
 func _on_bind_requested(player_id: int, turn: int) -> void:
 	rebinder.rebind(player_id, turn)

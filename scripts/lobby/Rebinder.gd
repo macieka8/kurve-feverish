@@ -12,9 +12,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		
 		if turn == 1:
-			lobby.players[rebinding_player_id].left = event
+			lobby.players[rebinding_player_id].left = event.keycode
+			lobby.players[rebinding_player_id].left_name = event.as_text()
+			
 		elif turn == 2:
-			lobby.players[rebinding_player_id].right = event
+			lobby.players[rebinding_player_id].right = event.keycode
+			lobby.players[rebinding_player_id].right_name = event.as_text()
 		turn = 0
 		lobby.player_data_changed.emit()
 

@@ -9,11 +9,11 @@ var color
 func _ready():
 	mesh_instance.mesh = create_mesh(positions[0], positions[1], positions[2], positions[3])
 	collider.polygon = PackedVector2Array(positions)
-	
+
 func set_color(trail_color: Color):
 	color = trail_color
 	return self
-	
+
 func set_collider(a: Vector2, b: Vector2, c: Vector2, d: Vector2):
 	positions = [a, b, c, d]
 	return self
