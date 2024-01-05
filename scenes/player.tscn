@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://gfr0kxcdllbs"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ckttg"]
+[ext_resource type="Material" uid="uid://ckw34uapbtltv" path="res://shaders/circle_material.tres" id="2_k7bsu"]
+[ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="3_65xce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8fvj"]
+radius = 6.40312
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ckttg")
+speed = null
+rotate_speed = null
+thickness = null
+trail_color = Color(0, 0.776471, 0.388235, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n8fvj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_k7bsu")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_65xce")

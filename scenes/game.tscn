@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c10g7k36cwtec"]
+
+[ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="1_ka76r"]
+[ext_resource type="Script" path="res://scenes/Game.gd" id="1_pl8sn"]
+[ext_resource type="Material" uid="uid://cjxsif6tny2qg" path="res://shaders/color.tres" id="2_bypku"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_pl8sn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_bypku")
+scale = Vector2(5, 5)
+texture = ExtResource("1_ka76r")
