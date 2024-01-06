@@ -17,6 +17,7 @@ var prev_position: Vector2 = Vector2.ZERO
 var prev_trail
 
 func _ready() -> void:
+	add_to_group("gameplay")
 	prev_position = position
 	collider.shape.radius = 0.0
 

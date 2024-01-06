@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://xest66tcfy2s"]
+
+[ext_resource type="Shader" path="res://shaders/color.gdshader" id="1_s6ani"]
+
+[resource]
+shader = ExtResource("1_s6ani")
+shader_parameter/color = Color(1, 1, 1, 1)

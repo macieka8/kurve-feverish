@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="1_ka76r"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_o6qq3"]
-[ext_resource type="Material" uid="uid://cjxsif6tny2qg" path="res://materials/color.tres" id="2_yph4t"]
+[ext_resource type="Material" uid="uid://cjxsif6tny2qg" path="res://materials/background.tres" id="2_6ks2i"]
 [ext_resource type="Material" uid="uid://cycwcg7nygbfa" path="res://materials/border.tres" id="4_fxtar"]
 
 [node name="Game" type="Node2D"]
@@ -12,7 +12,7 @@ script = ExtResource("1_o6qq3")
 zoom = Vector2(0.9, 0.9)
 
 [node name="Background" type="Sprite2D" parent="."]
-material = ExtResource("2_yph4t")
+material = ExtResource("2_6ks2i")
 scale = Vector2(5, 5)
 texture = ExtResource("1_ka76r")
 
@@ -20,3 +20,11 @@ texture = ExtResource("1_ka76r")
 material = ExtResource("4_fxtar")
 scale = Vector2(5, 5)
 texture = ExtResource("1_ka76r")
+
+[node name="Label" type="Label" parent="." groups=["visible_on_pause"]]
+offset_left = -203.0
+offset_top = 239.0
+offset_right = 203.0
+offset_bottom = 284.0
+theme_override_font_sizes/font_size = 32
+text = "Press 'space' to unpause..."

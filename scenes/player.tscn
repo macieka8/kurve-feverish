@@ -1,18 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://gfr0kxcdllbs"]
+[gd_scene load_steps=7 format=3 uid="uid://gfr0kxcdllbs"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ckttg"]
 [ext_resource type="Material" uid="uid://ckw34uapbtltv" path="res://materials/circle_material.tres" id="2_8uhru"]
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="3_65xce"]
+[ext_resource type="Material" uid="uid://xest66tcfy2s" path="res://materials/forward_icon.tres" id="4_nk7mm"]
+[ext_resource type="Script" path="res://scenes/Forward.gd" id="5_xjto1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8fvj"]
 radius = 6.40312
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ckttg")
-trail_color = Color(0, 0.776471, 0.388235, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n8fvj")
@@ -35,6 +36,13 @@ autostart = true
 [node name="PauseTrailTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Forward" type="Sprite2D" parent="." groups=["visible_on_pause"]]
+material = ExtResource("4_nk7mm")
+position = Vector2(13, 2.86102e-06)
+scale = Vector2(0.085, 0.03)
+texture = ExtResource("3_65xce")
+script = ExtResource("5_xjto1")
 
 [connection signal="timeout" from="PeriodicTrailTimer" to="." method="_on_periodic_trail_timer_timeout"]
 [connection signal="timeout" from="PauseTrailTimer" to="." method="_on_pause_trail_timer_timeout"]
