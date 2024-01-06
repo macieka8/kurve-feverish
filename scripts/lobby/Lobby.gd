@@ -24,6 +24,10 @@ func add_player() -> void:
 	new_player.name = get_random_name()
 	players.append(new_player)
 	player_data_changed.emit()
+	
+func remove_player(player_id: int) -> void:
+	players.remove_at(player_id)
+	player_data_changed.emit()
 
 func get_random_name() -> String:
 	return names[randi_range(0, names.size() - 1)]

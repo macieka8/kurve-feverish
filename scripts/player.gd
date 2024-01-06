@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		var trail = trail_scene.instantiate()
 		trail.set_color(trail_color).set_collider(current_trail[0], current_trail[1], prev_trail[0], prev_trail[1])
 		get_parent().add_child(trail)
-		
+	
 	_check_border_collision()
 	prev_trail = current_trail
 

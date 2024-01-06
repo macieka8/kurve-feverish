@@ -36,7 +36,6 @@ fit_content = true
 
 [node name="player-container" type="GridContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-columns = 2
 script = ExtResource("2_ds1ma")
 
 [node name="padding" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer"]
