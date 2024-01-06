@@ -1,4 +1,2 @@
 extends HBoxContainer
 class_name PlayerEntry
-
-signal on_rebind_request

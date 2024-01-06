@@ -35,6 +35,10 @@ func create_entry(player_id: int, player: PlayerData):
 	var delete_player_button := entry.get_node("delete-player") as Button
 	delete_player_button.pressed.connect(lobby.remove_player.bind(player_id))
 	
+	var color_button = entry.get_node("color-button") as ColorPickerButton
+	color_button.color = player.color
+	color_button.color_changed.connect(lobby.change_player_color.bind(player_id))
+	
 	add_child(entry)
 
 func _on_change_player_name(new_text: String, player_id: int) -> void:

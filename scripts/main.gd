@@ -1,6 +1,6 @@
 extends Node
 
-var lobby_scene := preload("res://scenes/lobby.tscn")
+var lobby_scene := preload("res://scenes/UI/lobby.tscn")
 var game_scene := preload("res://scenes/game.tscn")
 
 var lobby: Lobby

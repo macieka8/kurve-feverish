@@ -5,7 +5,6 @@ var player_data: PlayerData
 @export var speed: float = 100.0
 @export var rotate_speed: float = 4.0
 @export var thickness: float = 10.0
-@export var trail_color: Color
 
 var trail_scene = preload("res://scenes/trail_body.tscn")
 
@@ -41,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	prev_trail && 
 	_can_spawn_trail()):
 		var trail = trail_scene.instantiate()
-		trail.set_color(trail_color).set_collider(current_trail[0], current_trail[1], prev_trail[0], prev_trail[1])
+		trail.set_color(player_data.color).set_collider(current_trail[0], current_trail[1], prev_trail[0], prev_trail[1])
 		get_parent().add_child(trail)
 	
 	_check_border_collision()

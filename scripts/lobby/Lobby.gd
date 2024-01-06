@@ -5,10 +5,10 @@ signal player_data_changed
 signal start_game
 
 var default_player_data: Array[PlayerData] = [
-	PlayerData.from("", KEY_Q, KEY_W, "Q", "W"),
-	PlayerData.from("", KEY_Z, KEY_X, "Z", "X"),
-	PlayerData.from("", KEY_O, KEY_P, "O", "P"),
-	PlayerData.from("", KEY_DOWN, KEY_UP, "DOWN", "UP")
+	PlayerData.from("", KEY_Q, KEY_W, "Q", "W", Color.RED),
+	PlayerData.from("", KEY_Z, KEY_X, "Z", "X", Color.AQUA),
+	PlayerData.from("", KEY_O, KEY_P, "O", "P", Color.LIME_GREEN),
+	PlayerData.from("", KEY_DOWN, KEY_UP, "DOWN", "UP", Color.CHOCOLATE)
 ]
 
 var names := load_names()
@@ -25,10 +25,13 @@ func add_player() -> void:
 	players.append(new_player)
 	player_data_changed.emit()
 	
+func change_player_color(color: Color, player_id: int):
+	players[player_id].color = color
+
 func remove_player(player_id: int) -> void:
 	players.remove_at(player_id)
 	player_data_changed.emit()
-
+	
 func get_random_name() -> String:
 	return names[randi_range(0, names.size() - 1)]
 
@@ -52,4 +55,3 @@ func is_ready() -> bool:
 		if player.right == null:
 			return false
 	return true
-
