@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bjjgt86nqmnd"]
+
+[node name="player-score-entry" type="HBoxContainer"]
+
+[node name="color" type="ColorRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+text = "USERNAME"
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1

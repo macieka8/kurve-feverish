@@ -1,18 +1,19 @@
 extends CharacterBody2D
 class_name Player
 
-var player_data: PlayerData
+signal on_death(player_id: int)
+
 @export var speed: float = 100.0
 @export var rotate_speed: float = 4.0
 @export var thickness: float = 10.0
-
 var trail_scene = preload("res://scenes/trail_body.tscn")
-
 @onready var game_start_trail_timer: Timer = $GameStartTrailTimer
 @onready var periodic_trail_timer: Timer = $PeriodicTrailTimer
 @onready var pause_trail_timer: Timer = $PauseTrailTimer
 @onready var collider = $CollisionShape2D
 
+var player_data: PlayerData
+var player_id: int
 var prev_position: Vector2 = Vector2.ZERO
 var prev_trail
 
@@ -42,6 +43,7 @@ func _physics_process(delta: float) -> void:
 	_can_spawn_trail()):
 		var trail = trail_scene.instantiate()
 		trail.set_color(player_data.color).set_collider(current_trail[0], current_trail[1], prev_trail[0], prev_trail[1])
+		trail.add_to_group("trail")
 		get_parent().add_child(trail)
 	
 	_check_border_collision()
@@ -59,7 +61,8 @@ func get_trail_positions():
 	return [position + left, position + right]
 
 func _handle_collision() -> void:
-	self.queue_free()
+	on_death.emit(player_id)
+	queue_free()
 
 func _can_spawn_trail() -> bool:
 	return !periodic_trail_timer.is_stopped() && game_start_trail_timer.is_stopped()

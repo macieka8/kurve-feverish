@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c10g7k36cwtec"]
+[gd_scene load_steps=7 format=3 uid="uid://c10g7k36cwtec"]
 
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="1_ka76r"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_o6qq3"]
+[ext_resource type="Script" path="res://scripts/Score.gd" id="2_2bdr6"]
 [ext_resource type="Material" uid="uid://cjxsif6tny2qg" path="res://materials/background.tres" id="2_6ks2i"]
 [ext_resource type="Material" uid="uid://cycwcg7nygbfa" path="res://materials/border.tres" id="4_fxtar"]
+[ext_resource type="Script" path="res://scenes/UI/ScoreTableUI.gd" id="6_ep8ie"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o6qq3")
 
+[node name="Score" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_2bdr6")
+
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(120, 0)
 zoom = Vector2(0.9, 0.9)
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -28,3 +35,39 @@ offset_right = 203.0
 offset_bottom = 284.0
 theme_override_font_sizes/font_size = 32
 text = "Press 'space' to unpause..."
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 340.0
+offset_top = -315.0
+offset_right = 540.0
+offset_bottom = 315.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="score-label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "First to reach:"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="score-to-reach" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="padding" type="Control" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="score-table" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_ep8ie")

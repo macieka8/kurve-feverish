@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://ckw34uapbtltv" path="res://materials/circle_material.tres" id="2_8uhru"]
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="3_65xce"]
 [ext_resource type="Material" uid="uid://xest66tcfy2s" path="res://materials/forward_icon.tres" id="4_nk7mm"]
-[ext_resource type="Script" path="res://scenes/Forward.gd" id="5_xjto1"]
+[ext_resource type="Script" path="res://scripts/Forward.gd" id="5_xjto1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8fvj"]
 radius = 6.40312
