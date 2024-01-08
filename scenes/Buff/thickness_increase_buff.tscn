@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dljhfqgium6kb"]
+
+[ext_resource type="PackedScene" uid="uid://dsy1u2yx62a16" path="res://scenes/Buff/slow_buff.tscn" id="1_f3y16"]
+[ext_resource type="Script" path="res://scripts/Buff/TrailThicknessBuff.gd" id="2_y0ga2"]
+
+[node name="TrailThicknessBuff" instance=ExtResource("1_f3y16")]
+script = ExtResource("2_y0ga2")
+thickness_multiplier = 1.5

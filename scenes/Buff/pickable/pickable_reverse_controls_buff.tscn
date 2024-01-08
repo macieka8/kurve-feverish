@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg5il013e8b08"]
+
+[ext_resource type="PackedScene" uid="uid://cacvpbj81qjbw" path="res://scenes/Buff/pickable/pickable_speed_buff.tscn" id="1_h5o36"]
+[ext_resource type="PackedScene" uid="uid://c66mrwlwhns2u" path="res://scenes/Buff/reverse_controls_buff.tscn" id="2_ec0do"]
+
+[node name="pickable_reverse_controls_buff" instance=ExtResource("1_h5o36")]
+buff = ExtResource("2_ec0do")

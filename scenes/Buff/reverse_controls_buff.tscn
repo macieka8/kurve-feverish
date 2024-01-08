@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c66mrwlwhns2u"]
+
+[ext_resource type="PackedScene" uid="uid://dbgq86kycw8k0" path="res://scenes/Buff/speed_buff.tscn" id="1_70di8"]
+[ext_resource type="Script" path="res://scripts/Buff/ReverseControlsBuff.gd" id="2_1r4o2"]
+
+[node name="reverse_controls_buff" instance=ExtResource("1_70di8")]
+script = ExtResource("2_1r4o2")

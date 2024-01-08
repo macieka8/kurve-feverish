@@ -10,10 +10,12 @@ var player_scene := preload("res://scenes/player.tscn")
 
 var game_state := GameState.PAUSED
 var players: Array[PlayerData]
+var ended: bool
 
 func _ready() -> void:
 	score.setup_score(players.size(), self)
 	score.max_score_reached.connect(_on_max_score_reached)
+	_change_game_state(GameState.PAUSED)
 	_create_players()
 
 func _process(delta: float) -> void:
@@ -73,4 +75,7 @@ func _on_player_death(player_id: int) -> void:
 	player_death.emit(player_id)
 
 func _on_max_score_reached() -> void:
-	game_ended.emit()
+	# prevent game_ended to be emitted twice
+	if !ended:
+		game_ended.emit()
+		ended = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1tmgcajbaav3"]
+
+[ext_resource type="PackedScene" uid="uid://dljhfqgium6kb" path="res://scenes/Buff/thickness_increase_buff.tscn" id="1_cv62x"]
+
+[node name="thickness_decrease_buff" instance=ExtResource("1_cv62x")]
+thickness_multiplier = 0.667

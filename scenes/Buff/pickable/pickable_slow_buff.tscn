@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw84cjyk6a6e0"]
+
+[ext_resource type="PackedScene" uid="uid://cacvpbj81qjbw" path="res://scenes/Buff/pickable/pickable_speed_buff.tscn" id="1_cuaih"]
+[ext_resource type="PackedScene" uid="uid://dsy1u2yx62a16" path="res://scenes/Buff/slow_buff.tscn" id="2_e0isw"]
+
+[node name="pickable_slow_buff" instance=ExtResource("1_cuaih")]
+buff = ExtResource("2_e0isw")

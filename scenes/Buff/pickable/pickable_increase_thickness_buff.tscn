@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwtrh1qf742s"]
+
+[ext_resource type="PackedScene" uid="uid://dw84cjyk6a6e0" path="res://scenes/Buff/pickable/pickable_slow_buff.tscn" id="1_xkr6v"]
+[ext_resource type="PackedScene" uid="uid://dljhfqgium6kb" path="res://scenes/Buff/thickness_increase_buff.tscn" id="2_wf4x2"]
+
+[node name="pickable_inc_thickness_buff" instance=ExtResource("1_xkr6v")]
+buff = ExtResource("2_wf4x2")

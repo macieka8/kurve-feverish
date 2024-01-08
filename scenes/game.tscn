@@ -1,14 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://c10g7k36cwtec"]
+[gd_scene load_steps=13 format=3 uid="uid://c10g7k36cwtec"]
 
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="1_ka76r"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_o6qq3"]
 [ext_resource type="Script" path="res://scripts/Score.gd" id="2_2bdr6"]
 [ext_resource type="Material" uid="uid://cjxsif6tny2qg" path="res://materials/background.tres" id="2_6ks2i"]
+[ext_resource type="Script" path="res://scripts/Buff/BuffSpawner.gd" id="2_b4fri"]
 [ext_resource type="Material" uid="uid://cycwcg7nygbfa" path="res://materials/border.tres" id="4_fxtar"]
 [ext_resource type="Script" path="res://scenes/UI/ScoreTableUI.gd" id="6_ep8ie"]
+[ext_resource type="PackedScene" uid="uid://dw84cjyk6a6e0" path="res://scenes/Buff/pickable/pickable_slow_buff.tscn" id="6_veg4o"]
+[ext_resource type="PackedScene" uid="uid://bwtrh1qf742s" path="res://scenes/Buff/pickable/pickable_increase_thickness_buff.tscn" id="7_q310p"]
+[ext_resource type="PackedScene" uid="uid://cacvpbj81qjbw" path="res://scenes/Buff/pickable/pickable_speed_buff.tscn" id="7_u4tj2"]
+[ext_resource type="PackedScene" uid="uid://cg5il013e8b08" path="res://scenes/Buff/pickable/pickable_reverse_controls_buff.tscn" id="7_yhny3"]
+[ext_resource type="PackedScene" uid="uid://l00um3lbw5e4" path="res://scenes/Buff/pickable/pickable_decrease_thickness_buff.tscn" id="8_y5e5f"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o6qq3")
+
+[node name="buff_spawner" type="Node" parent="." groups=["gameplay"]]
+script = ExtResource("2_b4fri")
+pickable_buffs = Array[PackedScene]([ExtResource("8_y5e5f"), ExtResource("7_q310p"), ExtResource("7_yhny3"), ExtResource("6_veg4o"), ExtResource("7_u4tj2")])
+
+[node name="buff_spawn_timer" type="Timer" parent="buff_spawner"]
+wait_time = 5.0
+autostart = true
+
+[node name="buffs" type="Node" parent="buff_spawner"]
 
 [node name="Score" type="Node" parent="."]
 unique_name_in_owner = true
@@ -71,3 +87,5 @@ size_flags_stretch_ratio = 0.2
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("6_ep8ie")
+
+[connection signal="round_ended" from="." to="buff_spawner" method="_on_game_round_ended"]

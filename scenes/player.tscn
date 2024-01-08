@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://ckw34uapbtltv" path="res://materials/circle_material.tres" id="2_8uhru"]
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="3_65xce"]
 [ext_resource type="Material" uid="uid://xest66tcfy2s" path="res://materials/forward_icon.tres" id="4_nk7mm"]
-[ext_resource type="Script" path="res://scripts/Forward.gd" id="5_xjto1"]
+[ext_resource type="Script" path="res://scripts/Forward.gd" id="5_oe27f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8fvj"]
 radius = 6.40312
@@ -42,7 +42,7 @@ material = ExtResource("4_nk7mm")
 position = Vector2(13, 2.86102e-06)
 scale = Vector2(0.085, 0.03)
 texture = ExtResource("3_65xce")
-script = ExtResource("5_xjto1")
+script = ExtResource("5_oe27f")
 
 [connection signal="timeout" from="PeriodicTrailTimer" to="." method="_on_periodic_trail_timer_timeout"]
 [connection signal="timeout" from="PauseTrailTimer" to="." method="_on_pause_trail_timer_timeout"]

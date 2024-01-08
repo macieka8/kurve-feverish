@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsy1u2yx62a16"]
+
+[ext_resource type="PackedScene" uid="uid://dbgq86kycw8k0" path="res://scenes/Buff/speed_buff.tscn" id="1_tj667"]
+
+[node name="SlowBuff" instance=ExtResource("1_tj667")]
+speed_multiplier = 0.5

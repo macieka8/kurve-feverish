@@ -16,6 +16,7 @@ var player_data: PlayerData
 var player_id: int
 var prev_position: Vector2 = Vector2.ZERO
 var prev_trail
+var reverse_controls_count: int
 
 func _ready() -> void:
 	add_to_group("gameplay")
@@ -23,10 +24,14 @@ func _ready() -> void:
 	collider.shape.radius = 0.0
 
 func _process(delta: float) -> void:
+	var reverse_multiplier: float = 1.0
+	if reverse_controls_count > 0:
+		reverse_multiplier = -1.0
+
 	if Input.is_key_pressed(player_data.left):
-		rotate(-delta * rotate_speed)
+		rotate(-delta * rotate_speed * reverse_multiplier)
 	if Input.is_key_pressed(player_data.right):
-		rotate(delta * rotate_speed)
+		rotate(delta * rotate_speed * reverse_multiplier)
 
 func _physics_process(delta: float) -> void:
 	prev_position = position
@@ -37,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	if collision_info:
 		_handle_collision()
 	
-	var current_trail = get_trail_positions()
+	var current_trail = _get_trail_positions()
 	if (prev_position != position && 
 	prev_trail && 
 	_can_spawn_trail()):
@@ -54,7 +59,7 @@ func _check_border_collision() -> void:
 	if position.x > b_pos || position.x < -b_pos || position.y > b_pos || position.y < -b_pos:
 		_handle_collision()
 
-func get_trail_positions():
+func _get_trail_positions():
 	var rot = get_transform().get_rotation()
 	var left = Vector2(cos(rot + PI / 2), sin(rot + PI / 2)) * thickness / 2
 	var right = -left
