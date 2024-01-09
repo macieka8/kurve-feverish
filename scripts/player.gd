@@ -38,11 +38,11 @@ func _physics_process(delta: float) -> void:
 	var rot = get_transform().get_rotation()
 	var dir = Vector2(cos(rot), sin(rot))
 	
+	var current_trail = _get_trail_positions()
 	var collision_info = move_and_collide(delta * speed * dir)
 	if collision_info:
 		_handle_collision()
 	
-	var current_trail = _get_trail_positions()
 	if (prev_position != position && 
 	prev_trail && 
 	_can_spawn_trail()):
