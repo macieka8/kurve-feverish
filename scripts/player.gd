@@ -14,6 +14,7 @@ var prev_position: Vector2 = Vector2.ZERO
 var prev_trail
 var reverse_controls_count: int
 var pass_through_walls_count: int
+var invinsible_count: int
 
 @onready var game_start_trail_timer: Timer = $GameStartTrailTimer
 @onready var periodic_trail_timer: Timer = $PeriodicTrailTimer
@@ -41,9 +42,12 @@ func _physics_process(delta: float) -> void:
 	var dir = Vector2(cos(rot), sin(rot))
 	
 	var current_trail = _get_trail_positions()
-	var collision_info = move_and_collide(delta * speed * dir)
-	if collision_info:
-		_handle_collision()
+	if invinsible_count == 0:
+		var collision_info = move_and_collide(delta * speed * dir)
+		if collision_info:
+			_handle_collision()
+	else:
+		position += delta * speed * dir
 	
 	if (prev_position != position && 
 	prev_trail && 
@@ -84,7 +88,8 @@ func _handle_collision() -> void:
 	queue_free()
 
 func _can_spawn_trail() -> bool:
-	return !periodic_trail_timer.is_stopped() && game_start_trail_timer.is_stopped()
+	return (!periodic_trail_timer.is_stopped() && game_start_trail_timer.is_stopped() &&
+			invinsible_count == 0)
 
 func _on_pause_trail_timer_timeout() -> void:
 	periodic_trail_timer.start()

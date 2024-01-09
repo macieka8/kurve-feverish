@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c10g7k36cwtec"]
+[gd_scene load_steps=15 format=3 uid="uid://c10g7k36cwtec"]
 
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="1_ka76r"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_o6qq3"]
@@ -13,13 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://cg5il013e8b08" path="res://scenes/Buff/pickable/pickable_reverse_controls_buff.tscn" id="7_yhny3"]
 [ext_resource type="PackedScene" uid="uid://brfaoi7jlfy5c" path="res://scenes/Buff/pickable/pickable_pass_through_walls_buff.tscn" id="8_426hv"]
 [ext_resource type="PackedScene" uid="uid://l00um3lbw5e4" path="res://scenes/Buff/pickable/pickable_decrease_thickness_buff.tscn" id="8_y5e5f"]
+[ext_resource type="PackedScene" uid="uid://bq0rxafs8s7n6" path="res://scenes/Buff/pickable/pickable_invinsible_buff.tscn" id="14_qtgbu"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o6qq3")
 
 [node name="buff_spawner" type="Node" parent="." groups=["gameplay"]]
 script = ExtResource("2_b4fri")
-pickable_buffs = Array[PackedScene]([ExtResource("8_y5e5f"), ExtResource("7_q310p"), ExtResource("7_yhny3"), ExtResource("6_veg4o"), ExtResource("7_u4tj2"), ExtResource("8_426hv")])
+pickable_buffs = Array[PackedScene]([ExtResource("8_y5e5f"), ExtResource("7_q310p"), ExtResource("7_yhny3"), ExtResource("6_veg4o"), ExtResource("7_u4tj2"), ExtResource("8_426hv"), ExtResource("14_qtgbu")])
 
 [node name="buff_spawn_timer" type="Timer" parent="buff_spawner"]
 wait_time = 5.0
@@ -89,7 +90,6 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("6_ep8ie")
 
-[node name="pickable_pass_through_walls_buff" parent="." instance=ExtResource("8_426hv")]
-position = Vector2(-106, 193)
+[node name="pickable_invinsible_buff" parent="." instance=ExtResource("14_qtgbu")]
 
 [connection signal="round_ended" from="." to="buff_spawner" method="_on_game_round_ended"]
