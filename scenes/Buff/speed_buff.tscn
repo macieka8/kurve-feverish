@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/Buff/SpeedBuff.gd" id="1_2061v"]
 
-[node name="SpeedBuff" type="Node"]
+[node name="speed_buff" type="Node"]
 script = ExtResource("1_2061v")
-speed_multiplier = 2.0
+speed_multiplier = 1.5
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0

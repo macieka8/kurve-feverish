@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0v1tl8nvjli4"]
+
+[ext_resource type="Script" path="res://scripts/Buff/PowerUp.gd" id="1_y1a1b"]
+[ext_resource type="PackedScene" uid="uid://dq8tlu0kmsvdi" path="res://scenes/Buff/thickness_increase_buff.tscn" id="2_yg7rn"]
+[ext_resource type="Material" uid="uid://c4xof0pshylsc" path="res://materials/buff_icon_other.tres" id="3_kpn77"]
+[ext_resource type="Texture2D" uid="uid://dl4b3c4423b47" path="res://images/thickness_increase_buff.png" id="4_ww54w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5nxl"]
+radius = 15.0333
+
+[node name="other_pickable_thickness_increase_buff_tscn" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_y1a1b")
+buff = ExtResource("2_yg7rn")
+buff_source = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("3_kpn77")
+scale = Vector2(0.117188, 0.117188)
+texture = ExtResource("4_ww54w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b5nxl")

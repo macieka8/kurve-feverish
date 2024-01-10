@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://khf16daag75r"]
-
-[ext_resource type="PackedScene" uid="uid://dbgq86kycw8k0" path="res://scenes/Buff/speed_buff.tscn" id="1_3rgmm"]
-[ext_resource type="Script" path="res://scripts/Buff/InvinsibleBuff.gd" id="2_lbmu5"]
-
-[node name="invinsible_buff" instance=ExtResource("1_3rgmm")]
-script = ExtResource("2_lbmu5")

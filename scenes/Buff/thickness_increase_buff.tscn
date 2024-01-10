@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dljhfqgium6kb"]
+[gd_scene load_steps=2 format=3 uid="uid://dq8tlu0kmsvdi"]
 
-[ext_resource type="PackedScene" uid="uid://dsy1u2yx62a16" path="res://scenes/Buff/slow_buff.tscn" id="1_f3y16"]
 [ext_resource type="Script" path="res://scripts/Buff/TrailThicknessBuff.gd" id="2_y0ga2"]
 
-[node name="TrailThicknessBuff" instance=ExtResource("1_f3y16")]
+[node name="thickness_increase_buff" type="Node"]
 script = ExtResource("2_y0ga2")
 thickness_multiplier = 1.5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true

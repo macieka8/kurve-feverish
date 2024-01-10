@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://corr3avdk74vx"]
+
+[ext_resource type="Script" path="res://scripts/Buff/InvincibleBuff.gd" id="1_s8n4m"]
+
+[node name="invincible_buff" type="Node"]
+script = ExtResource("1_s8n4m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true

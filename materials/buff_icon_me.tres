@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7kbtcaywnfoq"]
+
+[ext_resource type="Shader" path="res://shaders/buff_icon.gdshader" id="1_u0rax"]
+
+[resource]
+shader = ExtResource("1_u0rax")
+shader_parameter/color = Color(0, 0.788235, 0.278431, 1)

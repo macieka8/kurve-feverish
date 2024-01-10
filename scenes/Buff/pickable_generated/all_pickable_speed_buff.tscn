@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://b62tfg3rda1aa"]
+
+[ext_resource type="Script" path="res://scripts/Buff/PowerUp.gd" id="1_tx240"]
+[ext_resource type="PackedScene" uid="uid://dbgq86kycw8k0" path="res://scenes/Buff/speed_buff.tscn" id="2_j4rh8"]
+[ext_resource type="Material" uid="uid://dymvnry0rji12" path="res://materials/buff_icon_all.tres" id="3_f12wt"]
+[ext_resource type="Texture2D" uid="uid://t357d56e01ho" path="res://images/speed_buff.png" id="4_7406s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5nxl"]
+radius = 15.0333
+
+[node name="all_pickable_speed_buff_tscn" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_tx240")
+buff = ExtResource("2_j4rh8")
+buff_source = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("3_f12wt")
+scale = Vector2(0.117188, 0.117188)
+texture = ExtResource("4_7406s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b5nxl")

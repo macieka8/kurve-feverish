@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq0rxafs8s7n6"]
-
-[ext_resource type="PackedScene" uid="uid://cacvpbj81qjbw" path="res://scenes/Buff/pickable/pickable_speed_buff.tscn" id="1_yotbp"]
-[ext_resource type="PackedScene" uid="uid://khf16daag75r" path="res://scenes/Buff/invinsible_buff.tscn" id="2_8ow1v"]
-
-[node name="pickable_invinsible_buff" instance=ExtResource("1_yotbp")]
-buff = ExtResource("2_8ow1v")

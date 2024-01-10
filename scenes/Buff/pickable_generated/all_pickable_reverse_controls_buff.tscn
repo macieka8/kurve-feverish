@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlrp5cofq4vhx"]
+
+[ext_resource type="Script" path="res://scripts/Buff/PowerUp.gd" id="1_pvdd8"]
+[ext_resource type="PackedScene" uid="uid://myocdhuha2js" path="res://scenes/Buff/reverse_controls_buff.tscn" id="2_5u2dy"]
+[ext_resource type="Material" uid="uid://dymvnry0rji12" path="res://materials/buff_icon_all.tres" id="3_014dg"]
+[ext_resource type="Texture2D" uid="uid://tljs5unkxngx" path="res://images/reverse_controls_buff.png" id="4_5w056"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5nxl"]
+radius = 15.0333
+
+[node name="all_pickable_reverse_controls_buff_tscn" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_pvdd8")
+buff = ExtResource("2_5u2dy")
+buff_source = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("3_014dg")
+scale = Vector2(0.117188, 0.117188)
+texture = ExtResource("4_5w056")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b5nxl")

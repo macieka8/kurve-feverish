@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsy1u2yx62a16"]
+[gd_scene load_steps=2 format=3 uid="uid://c6fb8tlx4x7o7"]
 
-[ext_resource type="PackedScene" uid="uid://dbgq86kycw8k0" path="res://scenes/Buff/speed_buff.tscn" id="1_tj667"]
+[ext_resource type="Script" path="res://scripts/Buff/SpeedBuff.gd" id="1_22oa1"]
 
-[node name="SlowBuff" instance=ExtResource("1_tj667")]
-speed_multiplier = 0.5
+[node name="slow_buff" type="Node"]
+script = ExtResource("1_22oa1")
+speed_multiplier = 0.667
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
