@@ -15,9 +15,6 @@ z_index = 5
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ckttg")
-speed = null
-rotate_speed = null
-thickness = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n8fvj")

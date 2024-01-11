@@ -6,6 +6,7 @@ signal on_death(player_id: int)
 @export var speed: float = 100.0
 @export var rotate_speed: float = 4.0
 @export var thickness: float = 10.0
+@export var random_trail_time: Vector2 = Vector2(0.2, 3.0)
 
 var trail_scene = preload("res://scenes/trail_body.tscn")
 var player_data: PlayerData
@@ -93,7 +94,10 @@ func _can_spawn_trail() -> bool:
 			invinsible_count == 0)
 
 func _on_pause_trail_timer_timeout() -> void:
+	periodic_trail_timer.wait_time = randf_range(random_trail_time.x, random_trail_time.y)
 	periodic_trail_timer.start()
+	invinsible_count -= 1
 
 func _on_periodic_trail_timer_timeout() -> void:
 	pause_trail_timer.start()
+	invinsible_count += 1 # makes player invincible when not creating trail
