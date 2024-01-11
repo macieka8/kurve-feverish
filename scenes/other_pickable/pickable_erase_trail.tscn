@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2pqx8itk8smr"]
+
+[ext_resource type="Script" path="res://scripts/pickable_erase_trail.gd" id="1_3rtsg"]
+[ext_resource type="Material" uid="uid://7kbtcaywnfoq" path="res://materials/buff_icon_me.tres" id="2_r451r"]
+[ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="3_y5qne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ym6"]
+size = Vector2(22, 22)
+
+[node name="pickable_erase_trail" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_3rtsg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_r451r")
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("3_y5qne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_14ym6")

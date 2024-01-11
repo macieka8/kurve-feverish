@@ -6,3 +6,4 @@
 shader = ExtResource("1_231c7")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/thickness = 0.99
+shader_parameter/animate = null

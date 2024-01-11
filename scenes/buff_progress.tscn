@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://durjxi6nnddte"]
+
+[ext_resource type="Shader" path="res://shaders/circle_progress.gdshader" id="1_5klth"]
+[ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="2_2r0s0"]
+[ext_resource type="Script" path="res://scenes/BuffProgress.gd" id="3_g47kc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7vt6"]
+shader = ExtResource("1_5klth")
+shader_parameter/color = Color(0, 0.54902, 1, 1)
+shader_parameter/progress = 0.67
+shader_parameter/thickness = 0.015
+
+[node name="BuffProgress" type="Sprite2D"]
+material = SubResource("ShaderMaterial_b7vt6")
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_2r0s0")
+script = ExtResource("3_g47kc")

@@ -3,7 +3,7 @@ class_name BuffSpawner
 
 const pickable_buffs_dir_name := "res://scenes/Buff/pickable_generated/"
 
-var pickable_buffs: Array[PackedScene]
+@export var pickables: Array[PackedScene]
 
 @onready var buff_spawn_timer: Timer = $buff_spawn_timer
 @onready var buffs_parent: Node = $buffs
@@ -13,10 +13,10 @@ func _ready() -> void:
 	var pickable_buffs_dir := DirAccess.open(pickable_buffs_dir_name)
 	for file_name in pickable_buffs_dir.get_files():
 		var pickable_buff = load(pickable_buffs_dir_name + file_name)
-		pickable_buffs.push_back(pickable_buff)
+		pickables.push_back(pickable_buff)
 
 func _spawn_buff() -> void:
-	var buff: Node2D = pickable_buffs[randi_range(0, pickable_buffs.size() - 1)].instantiate()
+	var buff: Node2D = pickables[randi_range(0, pickables.size() - 1)].instantiate()
 	buff.position = Vector2(randf_range(-310, 310), randf_range(-310, 310))
 	buffs_parent.add_child(buff)
 

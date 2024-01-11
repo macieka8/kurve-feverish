@@ -16,6 +16,7 @@ var reverse_controls_count: int
 var pass_through_walls_count: int
 var invinsible_count: int
 
+@onready var buff_displayer: BuffDisplayer = $BuffDisplayer
 @onready var game_start_trail_timer: Timer = $GameStartTrailTimer
 @onready var periodic_trail_timer: Timer = $PeriodicTrailTimer
 @onready var pause_trail_timer: Timer = $PauseTrailTimer

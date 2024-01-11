@@ -18,3 +18,6 @@ func _on_animate_walls(time: float) -> void:
 	time_left = time
 	is_animating = true
 	(material as ShaderMaterial).set_shader_parameter("animate", true)
+
+func _on_game_round_ended() -> void:
+	time_left = 0.0
