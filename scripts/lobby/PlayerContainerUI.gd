@@ -1,11 +1,12 @@
 extends Node
 
-@onready var lobby := $"../../../.." as Lobby
-@onready var rebinder := $"../../../../rebinder" as Rebinder
+@onready var lobby := owner as Lobby
+@onready var rebinder := %rebinder as Rebinder
 
 var entry_prefab = preload("res://scenes/UI/player_entry.tscn")
 
 func _on_lobby_player_data_changed() -> void:
+	
 	remove_all_children()
 	var i := 0
 	for player in lobby.players:

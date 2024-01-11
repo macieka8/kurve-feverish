@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 	global_rotation_degrees = 0.0
 	for i in range(buffs.size() - 1, -1, -1):
 		if buffs[i].buff == null:
-			print("NUll")
 			buffs[i].queue_free()
 			buffs.remove_at(i)
 			continue
