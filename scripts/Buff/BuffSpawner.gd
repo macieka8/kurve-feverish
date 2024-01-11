@@ -1,8 +1,6 @@
 extends Node
 class_name BuffSpawner
 
-const pickable_buffs_dir_name := "res://scenes/Buff/pickable_generated/"
-
 @export var pickables: Array[PackedScene]
 
 @onready var buff_spawn_timer: Timer = $buff_spawn_timer
@@ -10,10 +8,6 @@ const pickable_buffs_dir_name := "res://scenes/Buff/pickable_generated/"
 
 func _ready() -> void:
 	buff_spawn_timer.timeout.connect(_spawn_buff)
-	var pickable_buffs_dir := DirAccess.open(pickable_buffs_dir_name)
-	for file_name in pickable_buffs_dir.get_files():
-		var pickable_buff = load(pickable_buffs_dir_name + file_name)
-		pickables.push_back(pickable_buff)
 
 func _spawn_buff() -> void:
 	var buff: Node2D = pickables[randi_range(0, pickables.size() - 1)].instantiate()
