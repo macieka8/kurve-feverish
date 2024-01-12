@@ -20,8 +20,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if game_state == GameState.PLAYING:
-		var players := get_tree().get_nodes_in_group("player")
-		if players.size() == 0:
+		var found_characters := get_tree().get_nodes_in_group("player")
+		if ((players.size() == 1 && found_characters.size() == 0) ||
+			(players.size() > 1 && found_characters.size() == 1)):
+			for character in found_characters:
+				(character as Player).destroy()
 			_change_game_state(GameState.PAUSED)
 			_create_players()
 			_remove_trails()

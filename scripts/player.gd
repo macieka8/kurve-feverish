@@ -23,6 +23,10 @@ var invinsible_count: int
 @onready var pause_trail_timer: Timer = $PauseTrailTimer
 @onready var collider = $CollisionShape2D
 
+func destroy() -> void:
+	on_death.emit(player_id)
+	queue_free()
+
 func _ready() -> void:
 	add_to_group("gameplay")
 	prev_position = position
@@ -86,8 +90,7 @@ func _get_trail_positions():
 	return [position + left, position + right]
 
 func _handle_collision() -> void:
-	on_death.emit(player_id)
-	queue_free()
+	destroy()
 
 func _can_spawn_trail() -> bool:
 	return (!periodic_trail_timer.is_stopped() && game_start_trail_timer.is_stopped() &&
