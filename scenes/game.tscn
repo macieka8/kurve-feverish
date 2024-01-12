@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c10g7k36cwtec"]
+[gd_scene load_steps=13 format=3 uid="uid://c10g7k36cwtec"]
 
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="1_ka76r"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_o6qq3"]
@@ -8,35 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://b2pqx8itk8smr" path="res://scenes/other_pickable/pickable_erase_trail.tscn" id="3_4arsr"]
 [ext_resource type="Script" path="res://scripts/TrailEraser.gd" id="4_0cn0e"]
 [ext_resource type="Material" uid="uid://cycwcg7nygbfa" path="res://materials/border.tres" id="4_fxtar"]
-[ext_resource type="PackedScene" uid="uid://1sl4upn5sgj6" path="res://scenes/Buff/pickable_generated/all_pickable_invincible_buff.tscn" id="4_hiwi1"]
-[ext_resource type="PackedScene" uid="uid://dlrp5cofq4vhx" path="res://scenes/Buff/pickable_generated/all_pickable_reverse_controls_buff.tscn" id="6_ahk85"]
 [ext_resource type="Script" path="res://scenes/UI/ScoreTableUI.gd" id="6_ep8ie"]
 [ext_resource type="Script" path="res://AnimateWalls.gd" id="7_4fwmr"]
-[ext_resource type="PackedScene" uid="uid://b1l6wpxvypxo" path="res://scenes/Buff/pickable_generated/all_pickable_slow_buff.tscn" id="7_ic82a"]
-[ext_resource type="PackedScene" uid="uid://b62tfg3rda1aa" path="res://scenes/Buff/pickable_generated/all_pickable_speed_buff.tscn" id="8_jh86y"]
 [ext_resource type="PackedScene" uid="uid://cnvtd20ybfnul" path="res://scenes/Buff/pickable_generated/all_pickable_pass_through_walls_buff.tscn" id="9_7tjm6"]
-[ext_resource type="PackedScene" uid="uid://crmwfpy1uatd2" path="res://scenes/Buff/pickable_generated/all_pickable_thickness_decrease_buff.tscn" id="9_lc5kj"]
-[ext_resource type="PackedScene" uid="uid://br5fgi3g0gy6b" path="res://scenes/Buff/pickable_generated/all_pickable_thickness_increase_buff.tscn" id="10_sdken"]
 [ext_resource type="Script" path="res://scripts/score_to_reach_ui.gd" id="10_t6kyb"]
-[ext_resource type="PackedScene" uid="uid://5263m8vdyfjo" path="res://scenes/Buff/pickable_generated/me_pickable_invincible_buff.tscn" id="11_pjxai"]
-[ext_resource type="PackedScene" uid="uid://bjaoy72hu2p7c" path="res://scenes/Buff/pickable_generated/me_pickable_reverse_controls_buff.tscn" id="12_exuwo"]
-[ext_resource type="PackedScene" uid="uid://chxn2u7oxkpft" path="res://scenes/Buff/pickable_generated/me_pickable_slow_buff.tscn" id="13_wiwne"]
-[ext_resource type="PackedScene" uid="uid://dyl42wumnkx2j" path="res://scenes/Buff/pickable_generated/me_pickable_speed_buff.tscn" id="14_fwop0"]
-[ext_resource type="PackedScene" uid="uid://bbyrvwjdam0wr" path="res://scenes/Buff/pickable_generated/me_pickable_thickness_decrease_buff.tscn" id="15_buck4"]
-[ext_resource type="PackedScene" uid="uid://d0m7at5608h8s" path="res://scenes/Buff/pickable_generated/me_pickable_thickness_increase_buff.tscn" id="16_lw88x"]
-[ext_resource type="PackedScene" uid="uid://dvqf37ij8cph5" path="res://scenes/Buff/pickable_generated/other_pickable_invincible_buff.tscn" id="17_qx66m"]
-[ext_resource type="PackedScene" uid="uid://b02p5k4tqglgb" path="res://scenes/Buff/pickable_generated/other_pickable_reverse_controls_buff.tscn" id="18_7wti7"]
-[ext_resource type="PackedScene" uid="uid://du4v81k1ciovf" path="res://scenes/Buff/pickable_generated/other_pickable_slow_buff.tscn" id="19_ghlwi"]
-[ext_resource type="PackedScene" uid="uid://bks0hl1ksupy3" path="res://scenes/Buff/pickable_generated/other_pickable_speed_buff.tscn" id="20_1wxlc"]
-[ext_resource type="PackedScene" uid="uid://dmnxf4yrr51ry" path="res://scenes/Buff/pickable_generated/other_pickable_thickness_decrease_buff.tscn" id="21_xi56k"]
-[ext_resource type="PackedScene" uid="uid://b0v1tl8nvjli4" path="res://scenes/Buff/pickable_generated/other_pickable_thickness_increase_buff.tscn" id="22_3dqbl"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_o6qq3")
 
 [node name="BuffSpawner" type="Node" parent="." groups=["gameplay"]]
 script = ExtResource("2_b4fri")
-pickables = Array[PackedScene]([ExtResource("3_4arsr"), ExtResource("4_hiwi1"), ExtResource("9_7tjm6"), ExtResource("6_ahk85"), ExtResource("7_ic82a"), ExtResource("8_jh86y"), ExtResource("9_lc5kj"), ExtResource("10_sdken"), ExtResource("11_pjxai"), ExtResource("12_exuwo"), ExtResource("13_wiwne"), ExtResource("14_fwop0"), ExtResource("15_buck4"), ExtResource("16_lw88x"), ExtResource("17_qx66m"), ExtResource("18_7wti7"), ExtResource("19_ghlwi"), ExtResource("20_1wxlc"), ExtResource("21_xi56k"), ExtResource("22_3dqbl")])
+pickables = Array[PackedScene]([ExtResource("3_4arsr")])
 
 [node name="buff_spawn_timer" type="Timer" parent="BuffSpawner"]
 wait_time = 5.0

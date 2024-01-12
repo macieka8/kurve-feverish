@@ -3,10 +3,16 @@ class_name BuffSpawner
 
 @export var pickables: Array[PackedScene]
 
+var pickables_path := "res://scenes/Buff/pickable_generated/"
+
 @onready var buff_spawn_timer: Timer = $buff_spawn_timer
 @onready var buffs_parent: Node = $buffs
 
 func _ready() -> void:
+	var pickables_dir = DirAccess.open(pickables_path)
+	for file_name in pickables_dir.get_files():
+		var pickable = ResourceLoader.load(pickables_path + file_name.trim_suffix(".remap"))
+		pickables.push_back(pickable)
 	buff_spawn_timer.timeout.connect(_spawn_buff)
 
 func _spawn_buff() -> void:
