@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c10g7k36cwtec"]
+[gd_scene load_steps=12 format=3 uid="uid://c10g7k36cwtec"]
 
 [ext_resource type="Texture2D" uid="uid://dwurudkpn145g" path="res://icon.svg" id="1_ka76r"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_o6qq3"]
@@ -10,7 +10,6 @@
 [ext_resource type="Material" uid="uid://cycwcg7nygbfa" path="res://materials/border.tres" id="4_fxtar"]
 [ext_resource type="Script" path="res://scenes/UI/ScoreTableUI.gd" id="6_ep8ie"]
 [ext_resource type="Script" path="res://AnimateWalls.gd" id="7_4fwmr"]
-[ext_resource type="PackedScene" uid="uid://cnvtd20ybfnul" path="res://scenes/Buff/pickable_generated/all_pickable_pass_through_walls_buff.tscn" id="9_7tjm6"]
 [ext_resource type="Script" path="res://scripts/score_to_reach_ui.gd" id="10_t6kyb"]
 
 [node name="Game" type="Node2D"]
@@ -92,11 +91,6 @@ size_flags_stretch_ratio = 0.2
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("6_ep8ie")
-
-[node name="pickable_erase_trail" parent="." instance=ExtResource("3_4arsr")]
-position = Vector2(150, 129)
-
-[node name="all_pickable_pass_through_walls_buff_tscn2" parent="." instance=ExtResource("9_7tjm6")]
 
 [connection signal="round_ended" from="." to="BuffSpawner" method="_on_game_round_ended"]
 [connection signal="round_ended" from="." to="Border" method="_on_game_round_ended"]
