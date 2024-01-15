@@ -31,7 +31,7 @@ func change_player_color(color: Color, player_id: int):
 func remove_player(player_id: int) -> void:
 	players.remove_at(player_id)
 	player_data_changed.emit()
-	
+
 func get_random_name() -> String:
 	return names[randi_range(0, names.size() - 1)]
 
@@ -49,6 +49,9 @@ func _on_startgame_pressed() -> void:
 		start_game.emit()
 
 func is_ready() -> bool:
+	if players.size() < 1:
+		return false
+	# todo: comparing to null doesn't assure binded keys
 	for player in players:
 		if player.left == null:
 			return false
